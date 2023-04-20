@@ -1085,7 +1085,7 @@
                         </div>
                         <!-- #site-navigation-wrap -->
                         <div class="oceanwp-mobile-menu-icon clr mobile-right">
-                            <a href="https://fitmang.com/#mobile-menu-toggle" class="mobile-menu" aria-label="Mobile Menu">
+                            <a href="/#mobile-menu-toggle" class="mobile-menu" aria-label="Mobile Menu">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                                 <span class="oceanwp-text">Menu</span>
                                 <span class="oceanwp-close-text">Close</span>
@@ -1109,21 +1109,9 @@
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557">
                                     <a href="contact">Contact</a>
                                 </li>
-                                <li class="search-toggle-li">
-                                    <a href="https://fitmang.com/#" class="site-search-toggle search-dropdown-toggle">
-                                        <span class="screen-reader-text">Toggle website search</span>
-                                        <i class=" icon-magnifier" aria-hidden="true" role="img"></i>
-                                    </a>
-                                </li>
+                                
                             </ul>
-                            <div id="mobile-menu-search" class="clr">
-                                <form aria-label="Search this website" method="get" action="https://fitmang.com/" class="mobile-searchform">
-                                    <input aria-label="Insert search query" value="" class="field" id="ocean-mobile-search-2" type="search" name="s" autocomplete="off" placeholder="Search"/>
-                                    <button aria-label="Submit search" type="submit" class="searchform-submit">
-                                        <i class=" icon-magnifier" aria-hidden="true" role="img"></i>
-                                    </button>
-                                </form>
-                            </div>
+                            
                             <!-- .mobile-menu-search -->
                         </nav>
                     </div>
@@ -1224,7 +1212,10 @@
                                         
                                                                         }
                                                                     </style>
-                                                                    <pre class="landing"><%= returnmsg %></pre>
+                                            
+                                                                    <pre style="white-space: pre-wrap;
+                                                                    word-wrap: break-word;
+                                                                    text-align: justify;" class="landing" id="foo"><%= returnmsg %></pre>
                                                                 </div>
                                                             </div>
                                                             <div class="elementor-element elementor-element-b3c6859 elementor-align-left animated-slow elementor-widget__width-auto elementor-invisible elementor-widget elementor-widget-button" data-id="b3c6859" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="button.default">
@@ -1266,21 +1257,12 @@
         <script src='https://fitmang.com/wp-content/plugins/gpt3-ai-content-generator/public/js/wpaicg-form-shortcode.js' id='wpaicg-gpt-form-js'></script>
         <script src='https://fitmang.com/wp-content/plugins/gpt3-ai-content-generator/public/js/wpaicg-chat.js' id='wpaicg-chat-script-js'></script>
         <script src='https://fitmang.com/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
-        <script id='oceanwp-main-js-extra'>
-            var oceanwpLocalize = {
-                "nonce": "dd444fbc40",
-                "isRTL": "",
-                "menuSearchStyle": "drop_down",
-                "mobileMenuSearchStyle": "disabled",
-                "sidrSource": null,
-                "sidrDisplace": "1",
-                "sidrSide": "left",
-                "sidrDropdownTarget": "link",
-                "verticalHeaderTarget": "link",
-                "customScrollOffset": "0",
-                "customSelects": ".woocommerce-ordering .orderby, #dropdown_product_cat, .widget_categories select, .widget_archive select, .single-product .variations_form .variations select",
-                "ajax_url": "https:\/\/fitmang.com\/wp-admin\/admin-ajax.php"
-            };
+        <!-- <script>var out = document.querySelector("#foo");
+            var text = out.textContent;
+            var str = text.replace(/(.{60})/g, '$1<br/>');
+            out.innerHTML = str;</script>
+        <script id='oceanwp-main-js-extra'> -->
+          
         </script>
         <script src='https://fitmang.com/wp-content/themes/oceanwp/assets/js/theme.min.js?ver=3.4.3' id='oceanwp-main-js'></script>
         <script src='https://fitmang.com/wp-content/themes/oceanwp/assets/js/drop-down-mobile-menu.min.js?ver=3.4.3' id='oceanwp-drop-down-mobile-menu-js'></script>

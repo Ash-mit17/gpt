@@ -1894,6 +1894,7 @@
                                             type="text"
                                             class="wpforms-field-medium wpforms-field-required"
                                             name="namefield"
+                                            autocomplete="off"
                                             placeholder="Your Name"
                                             required
                                           />
@@ -2292,6 +2293,7 @@
                                             class="wpforms-field-small wpforms-field-required"
                                             name="wpforms[fields][19]"
                                             placeholder="State"
+                                            autocomplete="off"
                                             required
                                           />
                                         </div>
@@ -2311,6 +2313,7 @@
                                             class="wpforms-field-small wpforms-field-required"
                                             name="wpforms[fields][20]"
                                             placeholder="Country"
+                                            autocomplete="off"
                                             required
                                           />
                                         </div>
@@ -2379,10 +2382,11 @@
                                           data-submit-text="Submit"
                                           aria-live="assertive"
                                           value="wpforms-submit"
-                                          onclick="this.form.submit();alert(`loding results`)"
+                                          onclick="this.form.submit(); document.getElementById(`msg`).innerHTML=`Wait loading results`;"
                                         >
                                           Submit
                                         </button>
+                                        <div style="display: inline-block; padding: 5px 10px;"><h1 style="color: red;" id="msg"></h1></div>
                                         <img
                                           decoding="async"
                                           src="https://fitmang.com/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg"
