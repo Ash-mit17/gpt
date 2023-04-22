@@ -60,7 +60,7 @@ app.post("/form",async (req, res) => {
   var supplimentype = req.body.wpforms.fields[7];
   var state = req.body.wpforms.fields[5];
   var country = req.body.wpforms.fields[6];
-  var message = `Design a workout and a nutrition plan for a person easily accessible to their location.
+  var message = `Design a workout and a diet plan for a person easily accessible to their location.
 
   Their Details - 
   Age - ${age}
@@ -77,7 +77,6 @@ app.post("/form",async (req, res) => {
   Country - ${country}
   
   The plan should be without any extra text`;
-  console.log(message);
   var message1=`Workout Plan
    Monday/Wednesday/Friday:
   - Warm-up: 5 minutes of brisk walking or jogging in place
@@ -125,10 +124,13 @@ app.post("/form",async (req, res) => {
         gptmsg=response.data.choices[0].message.content;
         console.log(gptmsg);
       })
+      gptmsg.replace("diet","nutrition");
+      gptmsg.replace("Diet","Nutrition");
+
       res.render("landing",{
-        returnmsg:gptmsg,
+        returnmsg:message1,
       })
-})
+ })
 
 app.listen(3000, (req, res) => {
   console.log("Server live on port 3000");
