@@ -1598,7 +1598,7 @@
             >
               <div id="site-logo-inner" class="clr">
                 <a
-                  href="https://fitmang.com/"
+                  href="/"
                   class="custom-logo-link"
                   rel="home"
                 >
@@ -1672,7 +1672,7 @@
                   </li>
                   <li class="search-toggle-li">
                     <a
-                      href="https://fitmang.com/#"
+                      href="/#"
                       class="site-search-toggle search-dropdown-toggle"
                     >
                       <span class="screen-reader-text"
@@ -1695,7 +1695,7 @@
                     role="search"
                     method="get"
                     class="searchform"
-                    action="https://fitmang.com/"
+                    action="/"
                   >
                     <input
                       aria-label="Insert search query"
@@ -1762,7 +1762,7 @@
                 </li>
                 <li class="search-toggle-li">
                   <a
-                    href="https://fitmang.com/#"
+                    href="/#"
                     class="site-search-toggle search-dropdown-toggle"
                   >
                     <span class="screen-reader-text"
@@ -1879,7 +1879,16 @@
                                       class="wpforms-validate wpforms-form wpforms-ajax-form"
                                       method="post"
                                       action="/form"
+                                      id="formsubmit"
+                                      
                                     >
+                                    <script>
+                                      const form = document.querySelector('form');
+                                      form.addEventListener('submit',async (event) => {
+                                        await event.preventDefault(); // prevent default form submission behavior
+                                        // form data handling code goes here
+                                      }); 
+                                    </script>
                                       <div class="wpforms-field-container">
                                         <div
                                           class="wpforms-field wpforms-field-name"
@@ -2115,6 +2124,7 @@
                                             <li class="choice-1 depth-1">
                                               <input
                                                 type="radio"
+                                                name="wpforms[fields][11]"
                                                 value="Gym Based Workout"
                                                 required
                                               />
@@ -2378,13 +2388,7 @@
                                         />
                                         <button
                                           type="submit"
-                                          name="wpforms[submit]"
-                                          class="wpforms-submit"
-                                          data-alt-text="Sending..."
-                                          data-submit-text="Submit"
-                                          aria-live="assertive"
-                                          value="wpforms-submit"
-                                          onclick="this.form.submit(); document.getElementById(`msg`).innerHTML=` Preparing Your Training and Nutrition Plan...It can take a few seconds. Please wait...`;"
+                                          onclick="this.form.preventDefault(); this.form.submit();document.getElementById(`msg`).innerHTML=` Preparing Your Training and Nutrition Plan...It can take a few seconds. Please wait...`;"
                                         >
                                           Submit
                                         </button>

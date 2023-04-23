@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -17,6 +18,11 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/start.html");
@@ -25,28 +31,28 @@ app.post("/", (req, res) => {
   res.sendFile(__dirname + "/start.html");
 })
 
-app.get("/form",(req,res)=>{
+app.get("/form", (req, res) => {
   res.sendFile(__dirname + "/form.html");
 })
-app.get("/fitness",(req,res)=>{
+app.get("/fitness", (req, res) => {
   res.sendFile(__dirname + "/fitness.html");
 })
-app.get("/contact",(req,res)=>{
+app.get("/contact", (req, res) => {
   res.sendFile(__dirname + "/contact.html");
 })
-app.post("/contact",(req,res)=>{
+app.post("/contact", (req, res) => {
   res.sendFile(__dirname + "/contact.html");
 })
-app.get("/post1.html",(req,res)=>{
-  res.sendFile(__dirname+"/post1.html")
+app.get("/post1.html", (req, res) => {
+  res.sendFile(__dirname + "/post1.html")
 })
-app.get("/post2",(req,res)=>{
-  res.sendFile(__dirname+"/post2.html")
+app.get("/post2", (req, res) => {
+  res.sendFile(__dirname + "/post2.html")
 })
 
 var gptmsg;
 
-app.post("/form",async (req, res) => {
+app.post("/form", async (req, res) => {
   var name = req.body.namefield;
   var age = req.body.agefield;
   var gender = req.body.gender;
@@ -77,7 +83,7 @@ app.post("/form",async (req, res) => {
   Country - ${country}
   
   The plan should be without any extra text`;
-  var message1=`Workout Plan
+  var message1 = `Workout Plan
    Monday/Wednesday/Friday:
   - Warm-up: 5 minutes of brisk walking or jogging in place
   - Squats: 3 sets of 12 reps
@@ -114,23 +120,24 @@ app.post("/form",async (req, res) => {
   - Aim for 3 meals and 2 snacks per day.
   - Consult with a doctor or nutritionist if necessary.`
 
-    await openai.createChatCompletion({
-        model:"gpt-3.5-turbo",
-        messages:[
-              {role: "user", content:`${message}`},
-          ]
-        })
-      .then(async response=>{
-        gptmsg=response.data.choices[0].message.content;
-        console.log(gptmsg);
+  await openai.createChatCompletion({
+      model:"gpt-3.5-turbo",
+      messages:[
+            {role: "user", content:`${message}`},
+        ]
       })
-      gptmsg.replace("diet","nutrition");
-      gptmsg.replace("Diet","Nutrition");
+    .then(async response=>{
+      gptmsg=response.data.choices[0].message.content;
+      console.log(gptmsg);
+    })
+    gptmsg.replace("diet","nutrition");
+    gptmsg.replace("Diet","Nutrition");
 
-      res.render("landing",{
-        returnmsg:message1,
-      })
- })
+    res.render("landing",{
+      returnmsg:gptmsg,
+    })
+
+})
 
 app.listen(3000, (req, res) => {
   console.log("Server live on port 3000");
