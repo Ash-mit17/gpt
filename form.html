@@ -1597,11 +1597,7 @@
               itemtype="https://schema.org/Brand"
             >
               <div id="site-logo-inner" class="clr">
-                <a
-                  href="/"
-                  class="custom-logo-link"
-                  rel="home"
-                >
+                <a href="/" class="custom-logo-link" rel="home">
                   <img
                     width="512"
                     height="512"
@@ -1641,10 +1637,7 @@
                     id="menu-item-555"
                     class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-474 current_page_item menu-item-555"
                   >
-                    <a
-                      href="form"
-                      class="menu-link"
-                    >
+                    <a href="form" class="menu-link">
                       <span class="text-wrap">Transform Now</span>
                     </a>
                   </li>
@@ -1652,21 +1645,15 @@
                     id="menu-item-601"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-601"
                   >
-                    <a
-                      href="fitness"
-                      class="menu-link"
-                    >
-                      <span class="text-wrap">Fitness Tips</span>
+                    <a href="fitness" class="menu-link">
+                      <spa-n class="text-wrap">Fitness Tips</spa-n>
                     </a>
                   </li>
                   <li
                     id="menu-item-557"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"
                   >
-                    <a
-                      href="contact"
-                      class="menu-link"
-                    >
+                    <a href="contact" class="menu-link">
                       <span class="text-wrap">Contact</span>
                     </a>
                   </li>
@@ -1742,18 +1729,12 @@
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-474 current_page_item menu-item-555"
                 >
-                  <a
-                    href="form"
-                    aria-current="page"
-                    >Transform Now</a
-                  >
+                  <a href="form" aria-current="page">Transform Now</a>
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-601"
                 >
-                  <a href="fitness"
-                    >Fitness Tips</a
-                  >
+                  <a href="fitness">Fitness Tips</a>
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"
@@ -1772,7 +1753,7 @@
                   </a>
                 </li>
               </ul>
-              
+
               <!-- .mobile-menu-search -->
             </nav>
           </div>
@@ -1879,16 +1860,8 @@
                                       class="wpforms-validate wpforms-form wpforms-ajax-form"
                                       method="post"
                                       action="/form"
-                                      id="formsubmit"
-                                      
+                                      id="my-form"
                                     >
-                                    <script>
-                                      const form = document.querySelector('form');
-                                      form.addEventListener('submit',async (event) => {
-                                        await event.preventDefault(); // prevent default form submission behavior
-                                        // form data handling code goes here
-                                      }); 
-                                    </script>
                                       <div class="wpforms-field-container">
                                         <div
                                           class="wpforms-field wpforms-field-name"
@@ -1927,7 +1900,6 @@
                                           />
                                         </div>
                                         <div
-                                        
                                           class="wpforms-field wpforms-field-radio wpforms-list-inline"
                                           data-field-id="5"
                                         >
@@ -1940,14 +1912,10 @@
                                               >*</span
                                             >
                                           </label>
-                                          <ul
-                                            
-                                            class="wpforms-field-required"
-                                          >
+                                          <ul class="wpforms-field-required">
                                             <li class="choice-1 depth-1">
                                               <input
                                                 type="radio"
-                                                
                                                 name="gender"
                                                 value="Male"
                                                 required
@@ -1961,7 +1929,6 @@
                                             <li class="choice-2 depth-1">
                                               <input
                                                 type="radio"
-                                               
                                                 name="gender"
                                                 value="Female"
                                                 required
@@ -2388,11 +2355,30 @@
                                         />
                                         <button
                                           type="submit"
-                                          onclick="this.form.preventDefault(); this.form.submit();document.getElementById(`msg`).innerHTML=` Preparing Your Training and Nutrition Plan...It can take a few seconds. Please wait...`;"
+                                          id="submit-btn"
+                                          onclick="document.getElementById(`msg`).innerText=` Preparing Your Training and Nutrition Plan...It can take a few seconds.Please wait...`;"
                                         >
                                           Submit
                                         </button>
-                                        <div style="display: inline-block; padding: 5px 10px;"><h1 style="color: red;" id="msg"></h1></div>
+                                        <div
+                                        style="
+                                          display: inline-block;
+                                          padding: 5px 10px;
+                                        "
+                                      >
+                                        <h1 style="color: red" id="msg"></h1>
+                                      </div>
+                                        <!-- <script>
+                                          function checkform() {
+                                            document.getElementById("submit-btn").click(async (e)=>{
+                                              e.preventDefault();
+                                              console.log("HI")
+                                              document.getElementById(`msg`).innerText=` Preparing Your Training and Nutrition Plan...It can take a few seconds.Please wait...`; 
+                                              setTimeout(()=>{document.getElementById("my-form").submit();},5000)
+                                            })
+                                          }
+                                        </script> -->
+                            
                                         <img
                                           decoding="async"
                                           src="https://fitmang.com/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg"
