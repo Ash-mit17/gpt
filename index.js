@@ -130,6 +130,7 @@ app.post("/form", async (req, res) => {
       gptmsg=response.data.choices[0].message.content;
       console.log(gptmsg);
     })
+    .catch((error)=>{console.log(error)})
     await gptmsg.replace("diet","nutrition");
     await gptmsg.replace("Diet","Nutrition");
     // console.log(dietpreference);
