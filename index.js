@@ -126,13 +126,13 @@ app.post("/form", async (req, res) => {
             {role: "user", content:`${message}`},
         ]
       })
-    .then(async response=>{
+    .then(response=>{
       gptmsg=response.data.choices[0].message.content;
       console.log(gptmsg);
     })
     .catch((error)=>{console.log(error)})
-    await gptmsg.replace("diet","nutrition");
-    await gptmsg.replace("Diet","Nutrition");
+    // await gptmsg.replace("diet","nutrition");
+    // await gptmsg.replace("Diet","Nutrition");
     // console.log(dietpreference);
     res.render("landing",{
       returnmsg:gptmsg,
