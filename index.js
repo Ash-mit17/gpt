@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const cors = require('cors');
+
 
 require('dotenv').config();
 
@@ -18,36 +18,14 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-app.use(cors());
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/start.html");
-})
-app.post("/", (req, res) => {
-  res.sendFile(__dirname + "/start.html");
-})
-
-app.get("/form", (req, res) => {
   res.sendFile(__dirname + "/form.html");
-})
-app.get("/fitness", (req, res) => {
-  res.sendFile(__dirname + "/fitness.html");
-})
-app.get("/contact", (req, res) => {
-  res.sendFile(__dirname + "/contact.html");
-})
-app.post("/contact", (req, res) => {
-  res.sendFile(__dirname + "/contact.html");
-})
-app.get("/post1.html", (req, res) => {
-  res.sendFile(__dirname + "/post1.html")
-})
-app.get("/post2", (req, res) => {
-  res.sendFile(__dirname + "/post2.html")
 })
 
 var gptmsg;
