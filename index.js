@@ -118,6 +118,12 @@ app.post("/form", async (req, res) => {
 
 })
 
+app.get("/land", (req, res) => {
+  res.render("landing",{
+    returnmsg:"hi"
+  });
+})
+
 
 app.listen(3000, (req, res) => {
   console.log("Server live on port 3000");
