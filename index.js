@@ -44,7 +44,7 @@ app.post("/form", async (req, res) => {
   var supplimentype = req.body.wpforms.fields[7];
   var state = req.body.wpforms.fields[5];
   var country = req.body.wpforms.fields[6];
-  var message = `Design a workout and a diet plan for a person easily accessible to their location.
+  var message = `Design a full diet plan for a person easily accessible to their location.
 
   Their Details - 
   Age - ${age}
